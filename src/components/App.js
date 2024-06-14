@@ -1,13 +1,14 @@
 import logo from '../logo.svg';
 import '../App.css';
-import Navbar from '../components/Navbar';
 import { useState, useEffect } from 'react'
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
 import Home from '../pages/Home';
 import Recipe from '../pages/Recipe';
+import Meals from './Meals';
 
 
 function App() {
@@ -16,11 +17,14 @@ function App() {
       path: "/",
       element: <Home />
     },
-
     {
-        path: "/recipe",
+        path: "/recipe/:id",
         element: <Recipe />
-      }
+    },
+    {
+        path: "/meals/:categories",
+        element: <Meals />
+    }
   ]);  
 
 

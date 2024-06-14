@@ -1,7 +1,7 @@
 import logo from '../logo.svg';
 import '../App.css';
-import Navbar from '../components/Navbar';
 import { useState, useEffect } from 'react'
+import Card from '../components/Card';
 
 
 function Home() {
@@ -11,7 +11,11 @@ function Home() {
     useEffect(() => {
       fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
           .then((response) => response.json()) // Convert the response to JSON
-          .then((data) => setList(data.meals)) // Log the data
+          .then(data => {
+            if (data.categories) {
+                setList(data.categories);
+            }
+        }) // Log the data
           .catch((error) => console.error('Error fetching data:', error)); // Handle any errors
   }, []);
 
@@ -71,7 +75,7 @@ function Home() {
           </div>
         </div>
       </section>
-
+      <Card list={list}/>
       
     </div>
   );
