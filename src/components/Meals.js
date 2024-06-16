@@ -54,9 +54,13 @@ function Meals() {
 
       <div className="max-w-screen-xl mx-auto px-4 py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {searchResults.map((item) => (
-          <Link key={item.idMeal}   to={{
-            pathname: `/recipe/${item.idMeal}`,
-            state: { categories: categoryName } }} >
+          <Link
+            key={item.idMeal}
+            to={{
+              pathname: `/recipe/${item.idMeal}`,
+              state: { categories: categoryName },
+            }}
+          >
             <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
               <img
                 className="p-8 rounded-t-lg"
